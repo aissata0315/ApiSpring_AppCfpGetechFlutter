@@ -2,6 +2,7 @@ package sn.aissata.demo.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Candidature implements Serializable {
@@ -15,9 +16,12 @@ public class Candidature implements Serializable {
     private String prenom;
     private String telephone;
     private String email;
-  /*  @ManyToOne
-    //@JoinColumn(name = "idProfil")
-    private Profil profilcandidat;*/
+
+    @ManyToOne
+    @JoinColumn(name = "idProfil", referencedColumnName = "id")
+    private Profil profil;
+
+
 
     public Candidature() {
     }
@@ -70,11 +74,5 @@ public class Candidature implements Serializable {
         this.email = email;
     }
 
-  /*  public Profil getProfilcandidat() {
-        return profilcandidat;
-    }
 
-    public void setProfilcandidat(Profil profilcandidat) {
-        this.profilcandidat = profilcandidat;
-    }*/
 }

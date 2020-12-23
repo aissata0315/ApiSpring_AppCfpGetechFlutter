@@ -1,4 +1,4 @@
-/*package sn.aissata.demo.entities;
+package sn.aissata.demo.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -7,19 +7,18 @@ import java.util.List;
 public class Profil {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
     private String nomProfil;
-    @OneToMany
+    @OneToMany(mappedBy = "profil")
     private List<Candidature> candidatures;
-
     public Profil() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -31,12 +30,5 @@ public class Profil {
         this.nomProfil = nomProfil;
     }
 
-    public List<Candidature> getCandidatures() {
-        return candidatures;
-    }
 
-    public void setCandidatures(List<Candidature> candidatures) {
-        this.candidatures = candidatures;
-    }
 }
-*/
