@@ -1,4 +1,4 @@
-/*package sn.aissata.demo.entities;
+package sn.aissata.demo.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,23 +8,23 @@ import java.util.List;
 public class Formation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
     private String nomFormation;
     private String duree;
-    @ManyToOne
-    //@JoinColumn(name = "idDepartement")
+    @ManyToOne()
+    @JoinColumn(name = "idDepartement", referencedColumnName = "id")
     private Departement departement;
-    @OneToMany
+    @OneToMany(mappedBy = "formation")
     private List<Candidature> candidatures;
 
     public Formation() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -60,4 +60,3 @@ public class Formation implements Serializable {
         this.candidatures = candidatures;
     }
 }
-*/

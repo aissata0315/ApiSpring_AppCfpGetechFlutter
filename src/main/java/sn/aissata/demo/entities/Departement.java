@@ -4,6 +4,7 @@ import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,8 +17,8 @@ public class Departement implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idResponsable", referencedColumnName = "id")
     private Responsable responsabledep;
-   /* @OneToMany
-    private List<Formation> formations;*/
+    @OneToMany(mappedBy = "departement")
+    private List<Formation> formations = new ArrayList<>();
 
     public Departement() {
     }

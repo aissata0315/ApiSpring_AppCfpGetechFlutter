@@ -1,4 +1,4 @@
-/*package sn.aissata.demo.entities;
+package sn.aissata.demo.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -7,34 +7,35 @@ import java.io.Serializable;
 public class Candidature implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-    @ManyToOne
-    private Formation formationid;
+    private int id;
+    @ManyToOne()
+    @JoinColumn(name = "idFormation", referencedColumnName = "id")
+    private Formation formation;
     private String nom;
     private String prenom;
     private String telephone;
     private String email;
-    @ManyToOne
+  /*  @ManyToOne
     //@JoinColumn(name = "idProfil")
-    private Profil profilcandidat;
+    private Profil profilcandidat;*/
 
     public Candidature() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     public Formation getFormationid() {
-        return formationid;
+        return formation;
     }
 
     public void setFormationid(Formation formationid) {
-        this.formationid = formationid;
+        this.formation = formationid;
     }
 
     public String getNom() {
@@ -69,12 +70,11 @@ public class Candidature implements Serializable {
         this.email = email;
     }
 
-    public Profil getProfilcandidat() {
+  /*  public Profil getProfilcandidat() {
         return profilcandidat;
     }
 
     public void setProfilcandidat(Profil profilcandidat) {
         this.profilcandidat = profilcandidat;
-    }
+    }*/
 }
-*/
